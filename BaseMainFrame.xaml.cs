@@ -54,6 +54,7 @@ namespace DishSysManager
             switch (btnName)
             {
                 case "点餐":
+                    ShowChild(btnName, new FormDish());
                     break;
                 case "菜品维护":
                     ShowChild(btnName, new FormMenu());
@@ -79,14 +80,16 @@ namespace DishSysManager
             if (!ret)
             {
                 cachedForm = form;
+                ChildForm.Add(menu, cachedForm);
                 cachedForm.FormClosed += CachedForm_FormClosed;
             }
             else
             {
                 if (cachedForm.IsDisposed)
                 {
-                    ChildForm.Remove(menu); 
+                    ChildForm.Remove(menu);
                     cachedForm = form;
+                    ChildForm.Add(menu, cachedForm);
                     cachedForm.FormClosed += CachedForm_FormClosed;
                 }
             }
@@ -96,7 +99,7 @@ namespace DishSysManager
             cachedForm.AutoScaleMode = AutoScaleMode.Dpi;
             cachedForm.FormBorderStyle = FormBorderStyle.None;
             cachedForm.TopLevel = false;
-            mainWindowHost.Child = form;
+            mainWindowHost.Child = cachedForm;
         }
 
         private void CachedForm_FormClosed(object sender, FormClosedEventArgs e)

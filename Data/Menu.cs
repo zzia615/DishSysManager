@@ -8,7 +8,7 @@ using System.Text;
 namespace DishSysManager.Data
 {
     [Table("Menu")]
-    public class Menu
+    public class Menu:EventArgs
     {
         [Key]
         public int id { get; set; }

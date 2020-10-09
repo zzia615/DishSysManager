@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DishSysManager
 {
-    public partial class Form1 : Form
+    public partial class FormMain : Form
     {
-        public Form1()
+        public FormMain()
         {
             InitializeComponent();
             var data = SqlUtil.Inst.Catagories.FirstOrDefault(a => 1 != 1);

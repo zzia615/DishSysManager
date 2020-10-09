@@ -16,7 +16,17 @@ namespace DishSysManager
         public FormMenu()
         {
             InitializeComponent();
+            this.treeView1.HideSelection = false;//失去焦点后不隐藏选中节点
+            //自已绘制  
+            this.treeView1.DrawMode = TreeViewDrawMode.OwnerDrawText;
+            this.treeView1.DrawNode += new DrawTreeNodeEventHandler(treeView1_DrawNode);
         }
+        private void treeView1_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            e.DrawDefault = true; //使用默认颜色，只需要在TreeView失去焦点时选中节点仍然突显  
+            return;
+        }
+
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -69,6 +79,7 @@ namespace DishSysManager
         private void FormMenu_Load(object sender, EventArgs e)
         {
             RefreshCatagory();
+            treeView1.Focus();
         }
 
         private void treeView1_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
