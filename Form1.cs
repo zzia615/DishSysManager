@@ -15,7 +15,7 @@ namespace DishSysManager
         public Form1()
         {
             InitializeComponent();
-            var data = SqlUtil.Inst.Catagories.ToList();
+            var data = SqlUtil.Inst.Catagories.FirstOrDefault(a => 1 != 1);
         }
     }
 }

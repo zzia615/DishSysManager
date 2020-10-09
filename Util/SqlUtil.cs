@@ -90,5 +90,6 @@ namespace DishSysManager.Util
         }
 
         public DbSet<Catagory> Catagories { get; set; }
+        public DbSet<Menu> Menus { get; set; }
     }
 }

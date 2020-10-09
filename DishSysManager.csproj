@@ -74,17 +74,30 @@
     </Compile>
     <Compile Include="Data\Catagory.cs" />
     <Compile Include="Data\FrameData.cs" />
+    <Compile Include="Data\Menu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCatagory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCatagory.Designer.cs">
+      <DependentUpon>FormCatagory.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormMenu.Designer.cs">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMenuEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMenuEdit.Designer.cs">
+      <DependentUpon>FormMenuEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="FormWelcome.cs">
       <SubType>Form</SubType>
@@ -98,8 +111,14 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormCatagory.resx">
+      <DependentUpon>FormCatagory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMenuEdit.resx">
+      <DependentUpon>FormMenuEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormWelcome.resx">
       <DependentUpon>FormWelcome.cs</DependentUpon>
@@ -116,6 +135,7 @@
     <None Include="App.config" />
     <EmbeddedResource Include="dish" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DishSysManager.Data.Menu.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
