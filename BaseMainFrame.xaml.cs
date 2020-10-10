@@ -57,7 +57,10 @@ namespace DishSysManager
                     ShowChild(btnName, new FormDish());
                     break;
                 case "查询统计":
-                    ShowChild(btnName, new FormReport());
+                    var contextMenu = reportMenu;
+                    contextMenu.PlacementTarget = (sender as ToggleButton);
+                    contextMenu.Placement = System.Windows.Controls.Primitives.PlacementMode.Bottom;
+                    contextMenu.IsOpen = true;
                     break;
                 case "菜品维护":
                     ShowChild(btnName, new FormMenu());
@@ -114,6 +117,26 @@ namespace DishSysManager
         void ShowWelcome()
         {
             ShowChild("欢迎", new FormWelcome());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var menu = sender as System.Windows.Controls.MenuItem;
+            string title = menu.Header.ToString();
+            switch (title)
+            {
+                case "每日汇总统计":
+                    ShowChild(title, new FormReport());
+                    break;
+                case "每日明细统计":
+                    ShowChild(title, new FormReportMX());
+                    break;
+            }
+        }
+
+        private void ToggleButton_Initialized(object sender, EventArgs e)
+        {
+            (sender as ToggleButton).ContextMenu = null;
         }
     }
 }

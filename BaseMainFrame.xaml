@@ -40,7 +40,17 @@
         </Grid.RowDefinitions>
         <StackPanel Background="#FF3C6CB2" Orientation="Horizontal" Name="navMenu">
             <ToggleButton Width="100" BorderThickness="0" Foreground="#fff" FontSize="12pt" Template="{DynamicResource ButtonTemplate}" Click="ToggleButton_Click">点餐</ToggleButton>
-            <ToggleButton Width="100" BorderThickness="0" Foreground="#fff" FontSize="12pt" Template="{DynamicResource ButtonTemplate}" Click="ToggleButton_Click">查询统计</ToggleButton>
+            <ToggleButton Width="100" BorderThickness="0" Foreground="#fff" FontSize="12pt" Template="{DynamicResource ButtonTemplate}" Click="ToggleButton_Click" Initialized="ToggleButton_Initialized">
+                <ToggleButton.Content>
+                    查询统计
+                </ToggleButton.Content>
+                <ToggleButton.ContextMenu>
+                    <ContextMenu Name="reportMenu">
+                        <MenuItem Click="MenuItem_Click" Header="每日汇总统计"></MenuItem>
+                        <MenuItem Click="MenuItem_Click" Header="每日明细统计"></MenuItem>
+                    </ContextMenu>
+                </ToggleButton.ContextMenu>
+            </ToggleButton>
             <ToggleButton Width="100" BorderThickness="0" Foreground="#fff" FontSize="12pt" Template="{DynamicResource ButtonTemplate}" Click="ToggleButton_Click">菜品维护</ToggleButton>
         </StackPanel>
         <Grid Grid.Row="1">
