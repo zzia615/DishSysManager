@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("DishSysManager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("点餐管理系统")]
+[assembly: AssemblyDescription("点餐管理系统")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("jaylosy.com")]
 [assembly: AssemblyProduct("DishSysManager")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCopyright("Jaylosy ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

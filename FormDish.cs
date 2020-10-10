@@ -208,5 +208,15 @@ namespace DishSysManager
                 button2_Click(null, null);
             }
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            LoadMenu();
+        }
     }
 }

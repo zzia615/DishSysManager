@@ -34,7 +34,7 @@ namespace DishSysManager
             timer.Elapsed += Timer_Elapsed;
             FrameContext = new FrameDataContext();
             this.DataContext = FrameContext;
-            FrameContext.ProductName = "测试";
+            FrameContext.ProductName = "点餐管理系统";
             timer.Enabled = true;
 
             ShowWelcome();
@@ -55,6 +55,9 @@ namespace DishSysManager
             {
                 case "点餐":
                     ShowChild(btnName, new FormDish());
+                    break;
+                case "查询统计":
+                    ShowChild(btnName, new FormReport());
                     break;
                 case "菜品维护":
                     ShowChild(btnName, new FormMenu());

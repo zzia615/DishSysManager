@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.label1 = new System.Windows.Forms.Label();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.新增分类ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改分类ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,7 +45,6 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.删除菜品ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mcDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ctidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,10 +62,9 @@
             this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Font = new System.Drawing.Font("宋体", 10F);
-            this.treeView1.Location = new System.Drawing.Point(1, 35);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.treeView1.Location = new System.Drawing.Point(1, 28);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(241, 526);
+            this.treeView1.Size = new System.Drawing.Size(182, 422);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             this.treeView1.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseDoubleClick);
@@ -88,13 +86,12 @@
             this.isTjcDataGridViewTextBoxColumn,
             this.isRxcDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.menuBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(252, 59);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Location = new System.Drawing.Point(189, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(815, 504);
+            this.dataGridView1.Size = new System.Drawing.Size(611, 403);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
@@ -108,9 +105,20 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1067, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(800, 27);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F);
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(187, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.TabIndex = 3;
             // 
             // toolStripButton1
             // 
@@ -119,35 +127,35 @@
             this.修改分类ToolStripMenuItem,
             this.toolStripMenuItem1,
             this.删除分类ToolStripMenuItem});
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.Image = global::DishSysManager.Properties.Resources.MoreFunctions_32x32;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(73, 24);
+            this.toolStripButton1.Size = new System.Drawing.Size(65, 24);
             this.toolStripButton1.Text = "分类";
             // 
             // 新增分类ToolStripMenuItem
             // 
             this.新增分类ToolStripMenuItem.Name = "新增分类ToolStripMenuItem";
-            this.新增分类ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.新增分类ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.新增分类ToolStripMenuItem.Text = "新增分类";
             this.新增分类ToolStripMenuItem.Click += new System.EventHandler(this.新增分类ToolStripMenuItem_Click);
             // 
             // 修改分类ToolStripMenuItem
             // 
             this.修改分类ToolStripMenuItem.Name = "修改分类ToolStripMenuItem";
-            this.修改分类ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.修改分类ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.修改分类ToolStripMenuItem.Text = "修改分类";
             this.修改分类ToolStripMenuItem.Click += new System.EventHandler(this.修改分类ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(121, 6);
             // 
             // 删除分类ToolStripMenuItem
             // 
             this.删除分类ToolStripMenuItem.Name = "删除分类ToolStripMenuItem";
-            this.删除分类ToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
+            this.删除分类ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除分类ToolStripMenuItem.Text = "删除分类";
             this.删除分类ToolStripMenuItem.Click += new System.EventHandler(this.删除分类ToolStripMenuItem_Click);
             // 
@@ -158,56 +166,46 @@
             this.修改菜品ToolStripMenuItem,
             this.toolStripMenuItem2,
             this.删除菜品ToolStripMenuItem});
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
+            this.toolStripButton5.Image = global::DishSysManager.Properties.Resources.MoreFunctions_32x32;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(73, 24);
+            this.toolStripButton5.Size = new System.Drawing.Size(65, 24);
             this.toolStripButton5.Text = "菜品";
             // 
             // 新增菜品ToolStripMenuItem
             // 
             this.新增菜品ToolStripMenuItem.Name = "新增菜品ToolStripMenuItem";
-            this.新增菜品ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.新增菜品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.新增菜品ToolStripMenuItem.Text = "新增菜品";
             this.新增菜品ToolStripMenuItem.Click += new System.EventHandler(this.新增菜品ToolStripMenuItem_Click);
             // 
             // 修改菜品ToolStripMenuItem
             // 
             this.修改菜品ToolStripMenuItem.Name = "修改菜品ToolStripMenuItem";
-            this.修改菜品ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.修改菜品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.修改菜品ToolStripMenuItem.Text = "修改菜品";
             this.修改菜品ToolStripMenuItem.Click += new System.EventHandler(this.修改菜品ToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(213, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // 删除菜品ToolStripMenuItem
             // 
             this.删除菜品ToolStripMenuItem.Name = "删除菜品ToolStripMenuItem";
-            this.删除菜品ToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.删除菜品ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除菜品ToolStripMenuItem.Text = "删除菜品";
             this.删除菜品ToolStripMenuItem.Click += new System.EventHandler(this.删除菜品ToolStripMenuItem_Click);
             // 
             // toolStripButton2
             // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.Image = global::DishSysManager.Properties.Resources.Cancel_32x32;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(63, 24);
+            this.toolStripButton2.Size = new System.Drawing.Size(56, 24);
             this.toolStripButton2.Text = "关闭";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 12F);
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(249, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
-            this.label1.TabIndex = 3;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -235,9 +233,9 @@
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "price";
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.priceDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.priceDataGridViewTextBoxColumn.HeaderText = "单价";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
             this.priceDataGridViewTextBoxColumn.ReadOnly = true;
@@ -262,14 +260,13 @@
             // 
             // FormMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 562);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.treeView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMenu";
             this.Text = "FormMenu";
             this.Load += new System.EventHandler(this.FormMenu_Load);
