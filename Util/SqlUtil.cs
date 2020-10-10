@@ -89,7 +89,47 @@ namespace DishSysManager.Util
 
         }
 
+        public string GetLsh(string lb)
+        {
+            int year = DateTime.Now.Year;
+            var lsb = LSBs.FirstOrDefault(a => a.lb == lb);
+            if (lsb == null)
+            {
+                LSBs.Add(new LSB
+                {
+                    lb = lb,
+                    year = year,
+                    lsh = 2
+                });
+                SaveChanges();
+                return $"{year}00000001";
+            }
+            else
+            {
+                if (lsb.year == year)
+                {
+                    string lsh = $"{year}{lsb.lsh:00000000}";
+                    lsb.lsh = lsb.lsh + 1;
+
+                    Entry(lsb).State = EntityState.Modified;
+                    SaveChanges();
+                    return lsh;
+                }
+                else
+                {
+                    lsb.year = year;
+                    lsb.lsh = 2;
+                    Entry(lsb).State = EntityState.Modified;
+                    SaveChanges();
+                    return $"{year}00000001";
+                }
+            }
+        }
+
         public DbSet<Catagory> Catagories { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<LSB> LSBs { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Detail> Details { get; set; }
     }
 }

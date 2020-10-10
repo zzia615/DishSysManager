@@ -74,8 +74,11 @@
     </Compile>
     <Compile Include="CartInfo.cs" />
     <Compile Include="Data\Catagory.cs" />
+    <Compile Include="Data\Detail.cs" />
     <Compile Include="Data\FrameData.cs" />
+    <Compile Include="Data\LSB.cs" />
     <Compile Include="Data\Menu.cs" />
+    <Compile Include="Data\Order.cs" />
     <Compile Include="FormDish.cs">
       <SubType>Form</SubType>
     </Compile>

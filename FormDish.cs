@@ -128,6 +128,21 @@ namespace DishSysManager
             label2.Text = total_price.ToString("0.00");
         }
 
+        List<CartInfo> GetCartList()
+        {
+            List<CartInfo> dataList = new List<CartInfo>();
+            foreach (Control control in flowLayoutPanel2.Controls)
+            {
+                if (control is ucCart)
+                {
+                    var cart = control as ucCart;
+                    var info = cart.GetCartInfo();
+                    dataList.Add(info);
+                }
+            }
+            return dataList;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             flowLayoutPanel2.Controls.Clear();
@@ -144,7 +159,48 @@ namespace DishSysManager
             FormJz formJz = new FormJz(zje);
             formJz.SaveOrder = (zffs, yhje) =>
             {
-                return true;
+                var db = SqlUtil.Inst;
+                string ord_no = db.GetLsh("order");
+
+                var trans = db.Database.BeginTransaction();
+                try
+                {
+                    var order = new Data.Order
+                    {
+                        zffs = zffs,
+                        isJz = 1,
+                        no = ord_no,
+                        yhje = yhje,
+                        zje = zje
+                    };
+
+                    db.Orders.Add(order);
+                    List<Data.Detail> details = new List<Data.Detail>();
+                    foreach (var data in GetCartList())
+                    {
+                        var detail = new Data.Detail
+                        {
+                            m_id = data.id,
+                            m_mc = data.title,
+                            m_price = data.price,
+                            m_sl = data.num,
+                            ord_no = ord_no
+                        };
+
+                        db.Details.Add(detail);
+                    }
+
+                    db.SaveChanges();
+                    trans.Commit();
+                    MessageBox.Show("结账成功", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    trans.Rollback();
+                    MessageBox.Show("结账失败\r\n"+ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
             };
             var dr = formJz.ShowDialog();
             if(dr== DialogResult.OK)
