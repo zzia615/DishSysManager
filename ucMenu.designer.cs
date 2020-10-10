@@ -31,9 +31,11 @@
             this.lbName = new System.Windows.Forms.Label();
             this.pbMenu = new System.Windows.Forms.PictureBox();
             this.lbPrice = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbName
@@ -65,29 +67,38 @@
             this.lbPrice.TabIndex = 2;
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // checkBox1
+            // label1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Enabled = false;
-            this.checkBox1.Font = new System.Drawing.Font("宋体", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(6, 103);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(91, 24);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "推荐菜";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Red;
+            this.label1.Font = new System.Drawing.Font("宋体", 12F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "推荐菜";
             // 
-            // checkBox2
+            // label2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Enabled = false;
-            this.checkBox2.Font = new System.Drawing.Font("宋体", 12F);
-            this.checkBox2.Location = new System.Drawing.Point(103, 103);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 24);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "热销菜";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.SeaGreen;
+            this.label2.Font = new System.Drawing.Font("宋体", 12F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(78, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 20);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "热销菜";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 105);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(151, 22);
+            this.flowLayoutPanel1.TabIndex = 5;
             // 
             // ucMenu
             // 
@@ -95,8 +106,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lbPrice);
             this.Controls.Add(this.pbMenu);
             this.Controls.Add(this.lbName);
@@ -104,8 +114,9 @@
             this.Size = new System.Drawing.Size(197, 130);
             this.Load += new System.EventHandler(this.ucMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbMenu)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -114,7 +125,8 @@
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.PictureBox pbMenu;
         private System.Windows.Forms.Label lbPrice;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

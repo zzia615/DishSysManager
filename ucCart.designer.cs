@@ -40,7 +40,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(371, 3);
+            this.button1.Location = new System.Drawing.Point(347, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(34, 46);
             this.button1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("宋体", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(462, 3);
+            this.button2.Location = new System.Drawing.Point(439, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(34, 46);
             this.button2.TabIndex = 1;
@@ -73,14 +73,14 @@
             this.label1.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(3, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 46);
+            this.label1.Size = new System.Drawing.Size(241, 46);
             this.label1.TabIndex = 3;
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 20F);
-            this.textBox1.Location = new System.Drawing.Point(405, 3);
+            this.textBox1.Location = new System.Drawing.Point(381, 3);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(57, 46);
             this.textBox1.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Blue;
-            this.label2.Location = new System.Drawing.Point(279, 3);
+            this.label2.Location = new System.Drawing.Point(250, 3);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 46);
             this.label2.TabIndex = 5;
@@ -111,7 +111,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "ucCart";
-            this.Size = new System.Drawing.Size(497, 50);
+            this.Size = new System.Drawing.Size(475, 50);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

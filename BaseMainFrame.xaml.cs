@@ -34,7 +34,7 @@ namespace DishSysManager
             timer.Elapsed += Timer_Elapsed;
             FrameContext = new FrameDataContext();
             this.DataContext = FrameContext;
-            FrameContext.ProductName = "点餐管理系统";
+            FrameContext.ProductName = "点餐管理系统  Jaylosy版权所有";
             timer.Enabled = true;
 
             ShowWelcome();

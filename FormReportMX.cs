@@ -14,6 +14,7 @@ namespace DishSysManager
 {
     public partial class FormReportMX : Form
     {
+        FastReport.Report report = new FastReport.Report();
         public FormReportMX()
         {
             InitializeComponent();
@@ -42,7 +43,7 @@ namespace DishSysManager
             {
                 if (stream != null)  //没有找到，GetManifestResourceStream会返回null
                 {
-                    var report = new FastReport.Report();
+                    report.Clear();
                     report.Load(stream);
                     report.RegisterData(dataList,"mx");
                     report.Preview = this.previewControl1;

@@ -17,12 +17,14 @@ namespace DishSysManager
         public ucMenu(MenuInfo info)
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint, true);
+            this.UpdateStyles();
             this.menuInfo = info;
             pbMenu.ImageLocation = info.img_url;
             lbName.Text = info.title;
             lbPrice.Text = "价格："+info.price.ToString("0.00");
-            checkBox1.Checked = info.isTjc;
-            checkBox2.Checked = info.isRxc;
+            label1.Visible = info.isTjc;
+            label2.Visible = info.isRxc;
         }
 
         public MenuInfo GetMenuInfo()
@@ -33,9 +35,15 @@ namespace DishSysManager
         private void ucMenu_Load(object sender, EventArgs e)
         {
             this.Click += Control_Click;
-            foreach (Control control in this.Controls)
+            SetClickEvent(this.Controls);
+        }
+
+        void SetClickEvent(ControlCollection controls)
+        {
+            foreach (Control control in controls)
             {
                 control.Click += Control_Click;
+                SetClickEvent(control.Controls);
             }
         }
 

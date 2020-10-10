@@ -22,23 +22,39 @@ namespace DishSysManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            LoadCatagory();
+
+
+        }
+        void LoadCatagory()
+        {
             var dataList = SqlUtil.Inst.Catagories.ToList();
             dataList.Insert(0, new Data.Catagory
             {
                 id = 0,
                 mc = "全部"
             });
-            comboBox1.DisplayMember = "mc";
-            comboBox1.ValueMember = "id";
-            comboBox1.DataSource = dataList;
+            flowLayoutPanel3.Controls.Clear();
+            foreach (var data in dataList)
+            {
+                Button btn = new Button();
+                btn.Width = 170;
+                btn.Height = 50;
+                btn.Font = new Font("宋体", 20);
+                btn.Text = data.mc;
+                btn.Tag = data.id;
+                btn.Click += (sender, e) =>
+                {
+                    int ct_id = (int)btn.Tag;
+                    LoadMenu(ct_id);
+                };
+                flowLayoutPanel3.Controls.Add(btn);
+            }
 
-            comboBox1.SelectedValue = 0;
+            LoadMenu(0);
         }
-
-
-        void LoadMenu()
+        void LoadMenu(int ct_id)
         {
-            int ct_id = (int)comboBox1.SelectedValue;
             flowLayoutPanel1.Controls.Clear();
             BackgroundWorker bgWorker = new BackgroundWorker();
             bgWorker.DoWork += (sender, e) =>
@@ -147,14 +163,16 @@ namespace DishSysManager
         {
             flowLayoutPanel2.Controls.Clear();
         }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            LoadMenu();
-        }
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
+            var cartList = GetCartList();
+            if (cartList.Count <= 0)
+            {
+                MessageBox.Show("尚未点餐", "警告", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             double zje = double.Parse(label2.Text);
             FormJz formJz = new FormJz(zje);
             formJz.SaveOrder = (zffs, yhje) =>
@@ -176,7 +194,7 @@ namespace DishSysManager
 
                     db.Orders.Add(order);
                     List<Data.Detail> details = new List<Data.Detail>();
-                    foreach (var data in GetCartList())
+                    foreach (var data in cartList)
                     {
                         var detail = new Data.Detail
                         {
@@ -193,7 +211,15 @@ namespace DishSysManager
                     db.SaveChanges();
                     trans.Commit();
                     MessageBox.Show("结账成功", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    new FormReportCP(ord_no).Show();
+                    try
+                    {
+                        new FormReportCP(ord_no).Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("打印小票失败\r\n" + ex.Message, "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
                     return true;
                 }
                 catch (Exception ex)
@@ -217,7 +243,7 @@ namespace DishSysManager
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            LoadMenu();
+            LoadCatagory();
         }
     }
 }

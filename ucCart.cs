@@ -17,6 +17,8 @@ namespace DishSysManager
         public ucCart(MenuInfo menuInfo)
         {
             InitializeComponent();
+            this.SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint, true);
+            this.UpdateStyles();
             this.menuInfo = menuInfo;
             pictureBox1.ImageLocation = menuInfo.img_url;
             label1.Text = menuInfo.title;

@@ -15,6 +15,7 @@ namespace DishSysManager
 {
     public partial class FormReportCP : Form
     {
+        FastReport.Report report = new FastReport.Report();
         bool autoClose = false;
         public FormReportCP()
         {
@@ -32,11 +33,12 @@ namespace DishSysManager
             dataList2.Add(order);
             var hz = dataList2.Select(a => new
             {
-                date = a.date.ToString("yyyy-MM-dd"),
+                date = a.date.ToString("yyyy-MM-dd HH:mm"),
                 zje = a.zje.ToString("0.00"),
                 yhje = a.yhje.ToString("0.00"),
                 sfje = (a.zje - a.yhje).ToString("0.00"),
-                a.desk
+                a.desk,
+                ord_no = a.no
             }).ToList();
             //获取指定的资源
 
@@ -44,7 +46,7 @@ namespace DishSysManager
             {
                 if (stream != null)  //没有找到，GetManifestResourceStream会返回null
                 {
-                    var report = new FastReport.Report();
+                    report.Clear();
                     report.Load(stream);
                     report.RegisterData(dataList, "mx");
                     report.RegisterData(hz, "hz");
@@ -77,11 +79,11 @@ namespace DishSysManager
             dataList2.Add(order);
             var hz = dataList2.Select(a => new
             {
-                date = a.date.ToString("yyyy-MM-dd"),
+                date = a.date.ToString("yyyy-MM-dd HH:mm"),
                 zje = a.zje.ToString("0.00"),
                 yhje = a.yhje.ToString("0.00"),
                 sfje = (a.zje - a.yhje).ToString("0.00"),
-                a.desk
+                a.desk,ord_no=a.no
             }).ToList();
             //获取指定的资源
 
@@ -89,14 +91,15 @@ namespace DishSysManager
             {
                 if (stream != null)  //没有找到，GetManifestResourceStream会返回null
                 {
-                    this.previewControl1.Clear();
-                    var report = new FastReport.Report();
+                    report.Clear();
+                    //this.previewControl1.Clear();
                     report.Load(stream);
                     report.RegisterData(dataList, "mx");
                     report.RegisterData(hz, "hz");
                     report.Preview = this.previewControl1;
                     report.Prepare();
                     report.ShowPrepared();
+                    previewControl1.ZoomPageWidth();
                 }
             }
 
