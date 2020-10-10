@@ -150,6 +150,12 @@
     <Compile Include="FormMenuEdit.Designer.cs">
       <DependentUpon>FormMenuEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportCP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportCP.Designer.cs">
+      <DependentUpon>FormReportCP.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportMX.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     <EmbeddedResource Include="FormMenuEdit.resx">
       <DependentUpon>FormMenuEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReportCP.resx">
+      <DependentUpon>FormReportCP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportMX.resx">
       <DependentUpon>FormReportMX.cs</DependentUpon>
     </EmbeddedResource>
@@ -231,6 +240,7 @@
     <EmbeddedResource Include="dish" />
     <EmbeddedResource Include="daily_sum.frx" />
     <EmbeddedResource Include="daily_mx.frx" />
+    <EmbeddedResource Include="daily_cp.frx" />
     <None Include="DishSysManager_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DishSysManager.Data.Menu.datasource" />

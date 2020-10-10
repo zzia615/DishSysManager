@@ -131,6 +131,9 @@ namespace DishSysManager
                 case "每日明细统计":
                     ShowChild(title, new FormReportMX());
                     break;
+                case "点餐明细查询":
+                    ShowChild(title, new FormReportCP());
+                    break;
             }
         }
 

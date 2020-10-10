@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/10/2020 09:09:14" ReportInfo.Modified="10/10/2020 13:24:40" ReportInfo.CreatorVersion="2014.2.3.0">
+  <Dictionary>
+    <BusinessObjectDataSource Name="mx" ReferenceName="mx" DataType="null" Enabled="true">
+      <Column Name="id" DataType="System.Int32"/>
+      <Column Name="ord_no" DataType="System.String"/>
+      <Column Name="m_id" DataType="System.Int32"/>
+      <Column Name="m_mc" DataType="System.String"/>
+      <Column Name="m_price" DataType="System.Double"/>
+      <Column Name="m_sl" DataType="System.Int32"/>
+    </BusinessObjectDataSource>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
+      <TextObject Name="Text13" Left="9.45" Top="9.45" Width="434.7" Height="18.9" Text="点餐明细清单" HorzAlign="Center" VertAlign="Center" Font="黑体, 12pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="41" Width="718.2" Height="18.9">
+      <TextObject Name="Text1" Left="236.25" Width="113.4" Height="18.9" Border.Lines="All" Text="单价" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text2" Left="349.65" Width="94.5" Height="18.9" Border.Lines="All" Text="数量" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text14" Left="9.45" Width="226.8" Height="18.9" Border.Lines="All" Text="菜品名" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="63.1" Width="718.2" Height="18.9" DataSource="mx">
+      <TextObject Name="Text5" Left="236.25" Width="113.4" Height="18.9" Border.Lines="All" Text="[mx.m_price]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text6" Left="349.65" Width="94.5" Height="18.9" Border.Lines="All" Text="[mx.m_sl]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Text15" Left="9.45" Width="226.8" Height="18.9" Border.Lines="All" Text="[mx.m_mc]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="85.2" Width="718.2"/>
+  </ReportPage>
+</Report>
