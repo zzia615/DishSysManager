@@ -1,5 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="10/10/2020 09:09:14" ReportInfo.Modified="10/10/2020 13:24:40" ReportInfo.CreatorVersion="2014.2.3.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="10/10/2020 09:09:14" ReportInfo.Modified="10/10/2020 15:19:03" ReportInfo.CreatorVersion="2014.2.3.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {                
+    private float reportHeight;
+    private void Data1_AfterPrint(object sender, EventArgs e)
+    {
+      reportHeight += (sender as BandBase).Height; 
+    }
+    private void Page1_StartPage(object sender, EventArgs e)
+    {
+      if(Engine.FinalPass)
+      {
+        Page1.PaperHeight = (reportHeight + ReportTitle1.Height + PageHeader1.Height +PageFooter1.Height)/Units.Millimeters + Page1.TopMargin +Page1.BottomMargin;
+      }
+    }   
+  }
+}
+</ScriptText>
   <Dictionary>
     <BusinessObjectDataSource Name="mx" ReferenceName="mx" DataType="null" Enabled="true">
       <Column Name="id" DataType="System.Int32"/>
@@ -10,20 +43,24 @@
       <Column Name="m_sl" DataType="System.Int32"/>
     </BusinessObjectDataSource>
   </Dictionary>
-  <ReportPage Name="Page1">
-    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8">
-      <TextObject Name="Text13" Left="9.45" Top="9.45" Width="434.7" Height="18.9" Text="点餐明细清单" HorzAlign="Center" VertAlign="Center" Font="黑体, 12pt"/>
-    </ReportTitleBand>
-    <PageHeaderBand Name="PageHeader1" Top="41" Width="718.2" Height="18.9">
-      <TextObject Name="Text1" Left="236.25" Width="113.4" Height="18.9" Border.Lines="All" Text="单价" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
-      <TextObject Name="Text2" Left="349.65" Width="94.5" Height="18.9" Border.Lines="All" Text="数量" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
-      <TextObject Name="Text14" Left="9.45" Width="226.8" Height="18.9" Border.Lines="All" Text="菜品名" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+  <ReportPage Name="Page1" PaperWidth="55" PaperHeight="100">
+    <ReportTitleBand Name="ReportTitle1" Width="132.3"/>
+    <PageHeaderBand Name="PageHeader1" Top="3.2" Width="132.3" Height="37.8">
+      <TextObject Name="Text13" Width="132.3" Height="18.9" Text="点餐明细清单" HorzAlign="Center" VertAlign="Center" Font="黑体, 12pt"/>
+      <TextObject Name="Text7" Top="18.9" Width="132.3" Height="18.9" Text="桌号:[hz.desk]点餐日期:[hz.date]" VertAlign="Center" Font="宋体, 6pt"/>
     </PageHeaderBand>
-    <DataBand Name="Data1" Top="63.1" Width="718.2" Height="18.9" DataSource="mx">
-      <TextObject Name="Text5" Left="236.25" Width="113.4" Height="18.9" Border.Lines="All" Text="[mx.m_price]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
-      <TextObject Name="Text6" Left="349.65" Width="94.5" Height="18.9" Border.Lines="All" Text="[mx.m_sl]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
-      <TextObject Name="Text15" Left="9.45" Width="226.8" Height="18.9" Border.Lines="All" Text="[mx.m_mc]" HorzAlign="Center" VertAlign="Center" Font="宋体, 9pt"/>
+    <DataBand Name="Data1" Top="44.2" Width="132.3" Height="37.8" DataSource="mx">
+      <TextObject Name="Text5" Left="75.6" Top="18.9" Width="37.8" Height="18.9" Text="[mx.m_price]" HorzAlign="Center" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text6" Left="113.4" Top="18.9" Width="18.9" Height="18.9" Text="[mx.m_sl]" HorzAlign="Center" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text15" Top="18.9" Width="75.6" Height="18.9" Text="[mx.m_mc]" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text1" Left="75.6" Width="37.8" Height="18.9" Border.Lines="Bottom" Text="单价" HorzAlign="Center" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text2" Left="113.4" Width="18.9" Height="18.9" Border.Lines="Bottom" Text="数量" HorzAlign="Center" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text14" Width="75.6" Height="18.9" Border.Lines="Bottom" Text="菜品名" HorzAlign="Center" VertAlign="Center" Font="宋体, 6pt"/>
     </DataBand>
-    <PageFooterBand Name="PageFooter1" Top="85.2" Width="718.2"/>
+    <PageFooterBand Name="PageFooter1" Top="85.2" Width="132.3" Height="37.8">
+      <TextObject Name="Text4" Left="66.15" Top="18.9" Width="66.15" Height="18.9" Text="实付:[hz.sfje]" HorzAlign="Right" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text16" Left="66.15" Width="66.15" Height="18.9" Border.Lines="Top, Bottom" Text="优惠金额:[hz.yhje]" HorzAlign="Right" VertAlign="Center" Font="宋体, 6pt"/>
+      <TextObject Name="Text3" Width="66.15" Height="18.9" Border.Lines="Top, Bottom" Text="总金额:[hz.zje]" VertAlign="Center" Font="宋体, 6pt"/>
+    </PageFooterBand>
   </ReportPage>
 </Report>

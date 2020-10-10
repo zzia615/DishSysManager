@@ -193,6 +193,7 @@ namespace DishSysManager
                     db.SaveChanges();
                     trans.Commit();
                     MessageBox.Show("结账成功", "提示信息", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    new FormReportCP(ord_no).Show();
                     return true;
                 }
                 catch (Exception ex)
